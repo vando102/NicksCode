@@ -59,8 +59,8 @@ int main()
 					{
 						throw 4;
 					}
-		}
 		std::cout<< "The number is "<< f[indexing] << std::endl;
+		}
 	}while(answer == 'y' || answer == 'Y');
 	delete [] f;
 	f = NULL;
