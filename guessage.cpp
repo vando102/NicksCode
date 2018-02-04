@@ -38,8 +38,7 @@ int main()
 	{
 		add1015 = mult20 + 1017;
 	}
-
-	std::cout<< "Enter the year that you were born: "<< std::endl;
+	std::cout<< "Enter the year that you were born (Must be no earlier than 1919): "<< std::endl;
 	std::cin>>year;
 
 	int holder = add1015 - year;
