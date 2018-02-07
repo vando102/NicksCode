@@ -36,27 +36,27 @@ string derivative(string functions)
 		{
 			if(*it == "sin(x)")
 			{
-				ostr << "cos(x)";
+				ostr << "cos(x)"<< " ";
 			}
 			else if(*it == "cos(x)")
 			{
-				ostr<< "-sin(x)";
+				ostr<< "-sin(x)"<< " ";
 			}
 			else if(*it == "tan(x)")
 			{
-				ostr<< "sec^2(x)";
+				ostr<< "sec^2(x)"<< " ";
 			}
 			else if(*it ==  "cot(x)")
 			{
-				ostr<< "-csc^2(x)";
+				ostr<< "-csc^2(x)"<< " ";
 			}
 			else if(*it == "sec(x)")
 			{
-				ostr<< "sec(x)tan(x)";
+				ostr<< "sec(x)tan(x)"<< " ";
 			}
 			else if(*it ==  "csc(x)")
 			{
-				ostr<< "-csc(x)cot(x)";
+				ostr<< "-csc(x)cot(x)"<< " ";
 			}
 			else
 			{
