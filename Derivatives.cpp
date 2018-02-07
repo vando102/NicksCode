@@ -5,7 +5,14 @@
 #include <map>
 #include <vector>
 
-using namespace std;
+using std::cout;
+using std::cin;
+using std::string;
+using std::getline;
+using std::istringstream;
+using std::ostringstream;
+using std::vector;
+using std::endl;
 /*The plan is that this program will
 take the derivative of basic trigonometric functions.*/
 
