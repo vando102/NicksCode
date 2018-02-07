@@ -72,14 +72,8 @@ int main()
 {
 	string start;
 	string end;
-	int iterations;
-	cout << "How many questions do you have? " <<endl;
-	cin>>iterations;
-	for(int i = 0; i<iterations; i++)
-	{
-		end = derivative(start);
-		cout<< "Derived functions "<< end << endl;
-		cout << endl;
-	}
+	end = derivative(start);
+	cout<< "Derived functions "<< end << endl;
+	cout << endl;
 	return 0;
 }
