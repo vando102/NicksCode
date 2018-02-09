@@ -39,7 +39,6 @@ void input()
 		std::cout<< "Password: "<< std::endl;
 		getline(std::cin, interface.password);
 
-		/*Password will not work correctly even with correct input?? */
 		if(interface.username == inputusername && interface.password == password)
 		{
 			pass = true;
