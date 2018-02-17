@@ -1,81 +1,83 @@
 #include <iostream>
+#include <algorithm>
 
-void input()
+using std::cout;
+using std::cin;
+
+void input(int arrays[][2], int num_rows)
 {
-	int rows, columns, l,k, mrows, mcolumns;
-	int onearray[10][10], temparray[10][10];
-	std::cout<< "Enter number of rows here: "<< '\n';
-	std::cin>>mrows;
-	std::cout<< '\n';
-	std::cout<<"Enter number of columns here: "<< '\n';
-	std::cin>>mcolumns;
-	std::cout<<'\n';
-	std::cout<< "Enter contents of array here: "<< '\n';
-	for(rows = 0; rows<mrows; rows++)
+	cout<< "Enter contents of array here: "<< '\n';
+	for(int i = 0; i<num_rows; i++)
 	{
-		for(columns = 0; columns<mcolumns; columns++)
+		for(int j= 0; j<2;j++)
 		{
-			std::cin>>onearray[rows][columns];
+			cin>>arrays[i][j];
 		}
 	}
+}
 
-	std::cout<< "Before sorting:  "<< '\n';
-	for(rows = 0; rows<mrows; rows++)
+void print(int arrays[][2], int num_rows)
+{
+	for(int i = 0; i<num_rows; i++)
 	{
-		for(columns = 0; columns<mcolumns; columns++)
+		for(int j= 0; j<2;j++)
 		{
-			std::cout<<onearray[rows][columns] << " ";
+			cout<<arrays[i][j]<< " ";
 		}
-		std::cout<< '\n';
+		cout<< '\n';
 	}
+}
 
-	for(rows = 0; rows < mrows; rows++)
+void BubbleSort(int arrays[][2], int num_rows)
+{
+	int number = 1;
+	bool flag = true;
+	while(flag)
 	{
-		for(columns = 0; columns < mcolumns; columns++)
+		flag = false;
+		for(int i = 0; i<num_rows; i++)
 		{
-			for(l = rows; l < mrows; l++)
+			for(int j=1; j<2; j++)
 			{
-				if(l==rows)
+				if(arrays[i][j-1]>arrays[i][j])
 				{
-					for(k=(columns+1);k<mcolumns; k++)
-					{
-						if(onearray[rows][columns]>onearray[l][k])
-						{
-						temparray[rows][columns] = onearray[rows][columns];
-						onearray[rows][columns] = onearray[l][k];
-						onearray[l][k] = temparray[rows][columns];
-					}
-					}
+					cout<< "Step number "<< number << '\n';
+					int temp = arrays[i][j-1];
+					arrays[i][j-1]= arrays[i][j];
+					arrays[i][j] = temp;
+					print(arrays, num_rows);
+					number++;
+					flag = true;
 				}
-						if(l > rows)
-						{
-							for(k = 0; k<mcolumns;k++)
-							{
-								if(onearray[rows][columns]>onearray[l][k])
-								{
-									temparray[rows][columns] = onearray[rows][columns];
-									onearray[rows][columns] = onearray[l][k];
-									onearray[l][k] = temparray[rows][columns];
-								}
-							}
-						}
-					}
+				if(arrays[i][j]>arrays[i+1][0])
+				{
+					cout<< "Step number "<< number << '\n';
+					int temp = arrays[i][j];
+					arrays[i][j]= arrays[i+1][0];
+					arrays[i+1][0] = temp;
+					print(arrays, num_rows);
+					number++;
+					flag = true;
 				}
 			}
-std::cout<< '\n';
-std::cout<< "Printing contents of sorted array "<< '\n';
-	for(rows = 0; rows < mrows; rows++)
-	{
-		for(columns = 0; columns < mcolumns; columns++)
-		{
-			std::cout<< onearray[rows][columns] << " ";
 		}
-		std::cout<<'\n';
 	}
 }
 
 int main()
 {
-	input();
+	int num_rows;
+	cout << "Enter number of rows for sort here: "<< '\n';
+	cin>>num_rows;
+
+	int arrays[num_rows][2];
+	input(arrays, num_rows);
+	cout<< "Before Sort "<< '\n';
+	print(arrays, num_rows);
+
+	BubbleSort(arrays, num_rows);
+
+	cout<< "After Sort "<< '\n';
+	print(arrays, num_rows);
 	return 0;
 }
