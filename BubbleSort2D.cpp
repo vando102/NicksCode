@@ -31,11 +31,11 @@ void print(int arrays[][2], int num_rows)
 void BubbleSort(int arrays[][2], int num_rows)
 {
 	int number = 1;
-	bool flag = true;
-	while(flag)
+	bool flag = false;
+	while(!flag)
 	{
-		flag = false;
-		for(int i = 0; i<num_rows; i++)
+		flag = true;
+		for(int i = 0; i<num_rows-1; i++)
 		{
 			for(int j=1; j<2; j++)
 			{
@@ -47,7 +47,7 @@ void BubbleSort(int arrays[][2], int num_rows)
 					arrays[i][j] = temp;
 					print(arrays, num_rows);
 					number++;
-					flag = true;
+					flag = false;
 				}
 				if(arrays[i][j]>arrays[i+1][0])
 				{
@@ -57,7 +57,7 @@ void BubbleSort(int arrays[][2], int num_rows)
 					arrays[i+1][0] = temp;
 					print(arrays, num_rows);
 					number++;
-					flag = true;
+					flag = false;
 				}
 			}
 		}
