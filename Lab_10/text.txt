@@ -1,0 +1,9 @@
+s Easter
+i 12
+i 32
+s Bunny
+d 0.0725
+e
+i 100
+d 1.05
+q
